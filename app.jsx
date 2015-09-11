@@ -1,7 +1,11 @@
 import React from 'react';
-import HelloWorld from './hello-world';
+import FlightForm from './flight-form';
 
-React.render(
-    <HelloWorld phrase="ES6"/>,
-    document.body
+let app = (
+  <section>
+    <h1>Flight Builder</h1>
+    <FlightForm/>
+  </section>
 );
+
+React.render(app, document.getElementById('app'));
