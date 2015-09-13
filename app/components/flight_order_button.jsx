@@ -17,13 +17,12 @@ class FlightOrderButton extends React.Component {
   }
 
   listItems() {
-    console.log(this.state);
     return this.state.beers.map((beer) => {
       return (
         <li>
           <p><strong>Name: </strong>{beer.name}</p>
-          <p><strong>IBU: </strong>{beer.ibu}</p>
           <p><strong>ABV: </strong>{beer.abv}</p>
+          <p><strong>IBU: </strong>{beer.ibu}</p>
           <p><strong>Color: </strong>{beer.color}</p>
         </li>
       );

@@ -9,14 +9,21 @@ class FlightForm extends React.Component {
     this.state = { beers: FlightProfile.beers };
   }
 
+  resetBeers(e) {
+    FlightProfile.beers = [];
+    this.setBeers();
+  }
+
   addBeer(e) {
     let abv = this.state.beerABV,
         ibu = this.state.beerIBU,
         color = this.state.beerColor;
 
-
     FlightProfile.beers.push(new Beer('flight beer', abv, ibu, color));
+    this.setBeers();
+  }
 
+  setBeers() {
     this.setState({
       beers: FlightProfile.beers,
       beerABV: '',
@@ -41,8 +48,8 @@ class FlightForm extends React.Component {
     return FlightProfile.beers.map((beer) => {
       return (
         <li>
-          <p><strong>IBU: </strong>{beer.ibu}</p>
           <p><strong>ABV: </strong>{beer.abv}</p>
+          <p><strong>IBU: </strong>{beer.ibu}</p>
           <p><strong>Color: </strong>{beer.color}</p>
         </li>
       )
@@ -54,18 +61,19 @@ class FlightForm extends React.Component {
       <div>
         <form>
           <div>
-            <label htmlFor='ibu'>IBU</label>
-            <input name='ibu' value={this.state.beerIBU} onChange={this.editBeerIBU.bind(this)}></input>
-          </div>
-          <div>
             <label htmlFor='abv'>ABV</label>
             <input name='abv' value={this.state.beerABV} onChange={this.editBeerABV.bind(this)}></input>
+          </div>
+          <div>
+            <label htmlFor='ibu'>IBU</label>
+            <input name='ibu' value={this.state.beerIBU} onChange={this.editBeerIBU.bind(this)}></input>
           </div>
           <div>
             <label htmlFor='color'>Color</label>
             <input name='color' value={this.state.beerColor} onChange={this.editBeerColor.bind(this)}></input>
           </div>
           <button type='button' onClick={this.addBeer.bind(this)}>Add Beer</button>
+          <button type='button' onClick={this.resetBeers.bind(this)}>Reset</button>
         </form>
         <ul>{this.listItems()}</ul>
       </div>
