@@ -3,9 +3,12 @@ import Flight from './flight';
 
 class FlightForm extends React.Component {
 
-  state = { beers: Flight.beers };
+  constructor() {
+    super()
+    this.state = { beers: Flight.beers };
+  }
 
-  addBeer = (e) => {
+  addBeer(e) {
     Flight.beers.push({
       name: this.state.beerName,
       description: this.state.beerDescription
@@ -18,11 +21,11 @@ class FlightForm extends React.Component {
     });
   }
 
-  editBeerName = (e) => {
+  editBeerName(e) {
     this.setState({ beerName: e.target.value })
   }
 
-  editBeerDescription = (e) => {
+  editBeerDescription(e) {
     this.setState({ beerDescription: e.target.value })
   }
 
@@ -44,13 +47,13 @@ class FlightForm extends React.Component {
         <form>
           <div>
             <label htmlFor='name'>Name</label>
-            <input name='name' value={this.state.beerName} onChange={this.editBeerName}></input>
+            <input name='name' value={this.state.beerName} onChange={this.editBeerName.bind(this)}></input>
           </div>
           <div>
             <label htmlFor='description'>Description</label>
-            <textarea name='description' value={this.state.beerDescription} onChange={this.editBeerDescription}></textarea>
+            <textarea name='description' value={this.state.beerDescription} onChange={this.editBeerDescription.bind(this)}></textarea>
           </div>
-          <button type='button' onClick={this.addBeer}>Add Beer</button>
+          <button type='button' onClick={this.addBeer.bind(this)}>Add Beer</button>
         </form>
       </div>
     );
