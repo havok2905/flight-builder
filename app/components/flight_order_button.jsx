@@ -32,7 +32,7 @@ class FlightOrderButton extends React.Component {
   render() {
     return (
       <div>
-        <button type='button' onClick={this.build.bind(this)}>Build</button>
+        <button type='button' className='-constructive' onClick={this.build.bind(this)}>Build</button>
         <ul>{this.listItems()}</ul>
       </div>
     );

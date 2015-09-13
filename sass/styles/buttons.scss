@@ -1,4 +1,27 @@
+@mixin button-color($color) {
+  background-color: $color;
+  &:hover {
+    background-color: darken($color, 10);
+  }
+}
+
 button {
-  color: $red;
-  padding: 20px;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  outline: none;
+
+  @include button-color($gray);
+
+  &.-destructive {
+    @include button-color($red);
+  }
+
+  &.-constructive {
+    @include button-color($green);
+  }
+
+  &.-neutral {
+    @include button-color($blue);
+  }
 }
