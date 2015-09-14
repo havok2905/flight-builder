@@ -72,8 +72,10 @@ class FlightForm extends React.Component {
             <label htmlFor='color'>Color</label>
             <input name='color' value={this.state.beerColor} onChange={this.editBeerColor.bind(this)}></input>
           </div>
-          <button type='button' className='-constructive' onClick={this.addBeer.bind(this)}>Add Beer</button>
-          <button type='button' className='-destructive' onClick={this.resetBeers.bind(this)}>Reset</button>
+          <div>
+            <button type='button' className='-constructive' onClick={this.addBeer.bind(this)}>Add Beer</button>
+            <button type='button' className='-destructive' onClick={this.resetBeers.bind(this)}>Reset</button>
+          </div>
         </form>
         <ul>{this.listItems()}</ul>
       </div>

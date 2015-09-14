@@ -1,0 +1,19 @@
+ul {
+  li {
+    list-style-type: none;
+    border-top: solid 2px $gray;
+    display: block;
+    width: 100%;
+    padding: 15px 0;
+    margin-left: -30px;
+
+    p {
+      display: inline;
+      margin-right: 10px;
+
+      strong {
+
+      }
+    }
+  }
+}

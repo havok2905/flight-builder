@@ -1,0 +1,23 @@
+form {
+  div {
+    clear: both;
+    width: 96%;
+
+    label {
+      display: block;
+      font-weight: 900;
+      width: 96%;
+      padding: 10px 2% 10px 2%;
+      margin: 0 2%;
+    }
+
+    input {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 10px;
+      margin: 0 2%;
+      outline: none;
+    }
+  }
+}
