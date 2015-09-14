@@ -1,8 +1,8 @@
 import React from 'react';
-import Beer from '../classes/beer';
 import Flight from '../classes/flight';
 import FlightProfile from '../modules/flight_profile';
 import Cellar from '../modules/cellar';
+import BeerItem from './beer_item';
 
 class FlightOrderButton extends React.Component {
 
@@ -19,13 +19,7 @@ class FlightOrderButton extends React.Component {
   listItems() {
     return this.state.beers.map((beer) => {
       return (
-        <li>
-          <p><strong>Name: </strong>{beer.name}</p>
-          <p><strong>ABV: </strong>{beer.abv}</p>
-          <p><strong>Hops: </strong>{beer.hops}</p>
-          <p><strong>Malt: </strong>{beer.malt}</p>
-          <p><strong>Sour: </strong>{beer.sour}</p>
-        </li>
+        <BeerItem beer={beer}/>
       );
     });
   }

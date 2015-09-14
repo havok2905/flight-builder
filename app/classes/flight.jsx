@@ -89,7 +89,7 @@ class Flight {
         currentMatchScore = this.similarityScore(flightListItem, beerListItem);
         intensityDiff = this.intensityDifference(flightListItem, beerListItem);
 
-        if(this.beerNotInFlight(beerListItem) && currentMatchScore >= bestMatchScore && intensityDiff < 3) {
+        if(this.beerNotInFlight(beerListItem) && currentMatchScore >= bestMatchScore && intensityDiff < 2) {
           bestMatch = beerListItem;
           bestMatchScore = currentMatchScore;
         }

@@ -1,6 +1,7 @@
 import React from 'react';
 import Beer from '../classes/beer';
 import FlightProfile from '../modules/flight_profile';
+import BeerItem from './beer_item';
 
 class FlightForm extends React.Component {
 
@@ -53,12 +54,7 @@ class FlightForm extends React.Component {
   listItems() {
     return FlightProfile.beers.map((beer) => {
       return (
-        <li>
-          <p><strong>ABV: </strong>{beer.abv}</p>
-          <p><strong>Hops: </strong>{beer.hops}</p>
-          <p><strong>Malt: </strong>{beer.malt}</p>
-          <p><strong>Sour: </strong>{beer.sour}</p>
-        </li>
+        <BeerItem beer={beer}/>
       )
     });
   }
