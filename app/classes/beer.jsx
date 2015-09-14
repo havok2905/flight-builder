@@ -1,9 +1,10 @@
 class Beer {
-  constructor(name, abv, ibu, color) {
+  constructor(name, abv, hops, malt, sour) {
     this._name = name;
     this._abv = abv;
-    this._ibu = ibu;
-    this._color = color;
+    this._hops = hops;
+    this._malt = malt;
+    this._sour = sour;
   }
 
   get name() {
@@ -22,20 +23,28 @@ class Beer {
     this._abv = abv;
   }
 
-  get ibu() {
-    return this._ibu;
+  get hops() {
+    return this._hops;
   }
 
-  set ibu(ibu) {
-    this._ibu = ibu;
+  set hops(hops) {
+    this._hops = hops;
   }
 
-  get color() {
-    return this._color;
+  get malt() {
+    return this._malt;
   }
 
-  set color(color) {
-    this._color = color;
+  set malt(malt) {
+    this._malt = malt;
+  }
+
+  get sour() {
+    return this._sour;
+  }
+
+  set sour(sour) {
+    this._sour = sour;
   }
 
   /*
@@ -50,10 +59,13 @@ class Beer {
   profile() {
     return [
       {key: 'abv', value: this._abv},
-      {key: 'ibu', value: this._ibu},
-      {key: 'color', value: this._color},
+      {key: 'hops', value: this._hops},
+      {key: 'malt', value: this._malt},
+      {key: 'sour', value: this._sour}
     ];
   }
+
+
 }
 
 export default Beer;

@@ -16,10 +16,11 @@ class FlightForm extends React.Component {
 
   addBeer(e) {
     let abv = this.state.beerABV,
-        ibu = this.state.beerIBU,
-        color = this.state.beerColor;
+        hops = this.state.beerHops,
+        malt = this.state.beerMalt,
+        sour = this.state.beerSour;
 
-    FlightProfile.beers.push(new Beer('flight beer', abv, ibu, color));
+    FlightProfile.beers.push(new Beer('flight beer', abv, hops, malt, sour));
     this.setBeers();
   }
 
@@ -27,8 +28,9 @@ class FlightForm extends React.Component {
     this.setState({
       beers: FlightProfile.beers,
       beerABV: '',
-      beerIBU: '',
-      beerColor: ''
+      beerHops: '',
+      beerMalt: '',
+      beerSour: '',
     });
   }
 
@@ -36,12 +38,16 @@ class FlightForm extends React.Component {
     this.setState({ beerABV: e.target.value })
   }
 
-  editBeerIBU(e) {
-    this.setState({ beerIBU: e.target.value })
+  editBeerHops(e) {
+    this.setState({ beerHops: e.target.value })
   }
 
-  editBeerColor(e) {
-    this.setState({ beerColor: e.target.value })
+  editBeerMalt(e) {
+    this.setState({ beerMalt: e.target.value })
+  }
+
+  editBeerSour(e) {
+    this.setState({ beerSour: e.target.value })
   }
 
   listItems() {
@@ -49,8 +55,9 @@ class FlightForm extends React.Component {
       return (
         <li>
           <p><strong>ABV: </strong>{beer.abv}</p>
-          <p><strong>IBU: </strong>{beer.ibu}</p>
-          <p><strong>Color: </strong>{beer.color}</p>
+          <p><strong>Hops: </strong>{beer.hops}</p>
+          <p><strong>Malt: </strong>{beer.malt}</p>
+          <p><strong>Sour: </strong>{beer.sour}</p>
         </li>
       )
     });
@@ -65,12 +72,16 @@ class FlightForm extends React.Component {
             <input name='abv' value={this.state.beerABV} onChange={this.editBeerABV.bind(this)}></input>
           </div>
           <div>
-            <label htmlFor='ibu'>IBU</label>
-            <input name='ibu' value={this.state.beerIBU} onChange={this.editBeerIBU.bind(this)}></input>
+            <label htmlFor='ibu'>Hoppiness</label>
+            <input name='ibu' value={this.state.beerHops} onChange={this.editBeerHops.bind(this)}></input>
           </div>
           <div>
-            <label htmlFor='color'>Color</label>
-            <input name='color' value={this.state.beerColor} onChange={this.editBeerColor.bind(this)}></input>
+            <label htmlFor='ibu'>Maltiness</label>
+            <input name='ibu' value={this.state.beerMalt} onChange={this.editBeerMalt.bind(this)}></input>
+          </div>
+          <div>
+            <label htmlFor='color'>Sourness</label>
+            <input name='color' value={this.state.beerSour} onChange={this.editBeerSour.bind(this)}></input>
           </div>
           <div>
             <button type='button' className='-constructive' onClick={this.addBeer.bind(this)}>Add Beer</button>

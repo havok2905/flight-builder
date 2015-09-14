@@ -22,8 +22,9 @@ class FlightOrderButton extends React.Component {
         <li>
           <p><strong>Name: </strong>{beer.name}</p>
           <p><strong>ABV: </strong>{beer.abv}</p>
-          <p><strong>IBU: </strong>{beer.ibu}</p>
-          <p><strong>Color: </strong>{beer.color}</p>
+          <p><strong>Hops: </strong>{beer.hops}</p>
+          <p><strong>Malt: </strong>{beer.malt}</p>
+          <p><strong>Sour: </strong>{beer.sour}</p>
         </li>
       );
     });
