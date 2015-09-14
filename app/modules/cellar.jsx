@@ -26,9 +26,8 @@ let Cellar = {
   }
 }
 
-// IPAS
+// Generate random beers
 let style, name, abv, hops, malt, sour;
-
 for(var x=0; x<NUM_BEERS; x++) {
   style = Cellar.getRandomStyle();
 
