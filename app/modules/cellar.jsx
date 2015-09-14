@@ -1,39 +1,43 @@
 import Beer from '../classes/beer';
 
+const NUM_BEERS = 50000;
+
 let Cellar = {
-  beers: [
-    new Beer( 'Light Lager', 2,  1,  1,  0  ),
-    new Beer( 'Light Lager', 2,  2,  1,  0  ),
-    new Beer( 'Light Lager', 2,  1,  2,  0  ),
+  beers: [],
+  styles: [
+    { name: 'Sour',        abv: [2,  5],  hops: [0, 2],  malt: [0,1],  sour: [5, 10] },
+    { name: 'Light Lager', abv: [3,  5],  hops: [0, 2],  malt: [0,1],  sour: [0, 0]  },
+    { name: 'Pilsner',     abv: [3,  5],  hops: [2, 4],  malt: [0,2],  sour: [0, 0]  },
+    { name: 'Wheat',       abv: [3,  5],  hops: [3, 5],  malt: [1,3],  sour: [0, 2]  },
+    { name: 'Pale Ale',    abv: [4,  7],  hops: [6, 8],  malt: [2,3],  sour: [0, 0]  },
+    { name: 'IPA',         abv: [6,  11], hops: [6, 10], malt: [2,5],  sour: [0, 0]  },
+    { name: 'Scotch',      abv: [7,  9],  hops: [2, 4],  malt: [7,9],  sour: [0, 0]  },
+    { name: 'Porter',      abv: [5,  7],  hops: [3, 5],  malt: [7,9],  sour: [0, 0]  },
+    { name: 'Stout',       abv: [6,  12], hops: [4, 6],  malt: [8,10], sour: [0, 0]  },
+    { name: 'Barley Wine', abv: [10, 18], hops: [7, 10], malt: [8,10], sour: [0, 0]  }
+  ],
+  getRandomStyle: () => {
+    let styleIndex = Math.round(Math.random() * (Cellar.styles.length - 1));
+    return Cellar.styles[styleIndex];
+  },
+  getRandom: (min, max) => {
+    return Math.round(Math.random() * (max - min) + min);
+  }
+}
 
-    new Beer( 'Sour',        2,  1,  1,  10 ),
-    new Beer( 'Sour',        1,  1,  2,  8  ),
-    new Beer( 'Sour',        2,  1,  2,  7  ),
+// IPAS
+let style, name, abv, hops, malt, sour;
 
-    new Beer( 'Wheat',       3,  4,  1,  0  ),
-    new Beer( 'Wheat',       4,  3,  2,  0  ),
-    new Beer( 'Wheat',       3,  3,  1,  0  ),
+for(var x=0; x<NUM_BEERS; x++) {
+  style = Cellar.getRandomStyle();
 
-    new Beer( 'Pale Ale',    5,  7,  3,  0  ),
-    new Beer( 'Pale Ale',    6,  6,  2,  0  ),
-    new Beer( 'Pale Ale',    6,  7,  2,  0  ),
+  name = style.name + ' ' + x;
+  abv  = Cellar.getRandom(style.abv[0], style.abv[1]);
+  hops = Cellar.getRandom(style.hops[0], style.hops[1]);
+  malt = Cellar.getRandom(style.malt[0], style.malt[1]);
+  sour = Cellar.getRandom(style.sour[0], style.sour[1]);
 
-    new Beer( 'IPA',         7,  10, 3,  0  ),
-    new Beer( 'IPA',         9,  9,  4,  0  ),
-    new Beer( 'IPA',         11, 8,  2,  0  ),
-
-    new Beer( 'Barley Wine', 12, 10, 10, 0  ),
-    new Beer( 'Barley Wine', 14, 8,  10, 0  ),
-    new Beer( 'Barley Wine', 15, 10, 9 , 0  ),
-
-    new Beer( 'Porter',      5,  5,  8,  0  ),
-    new Beer( 'Porter',      6,  3,  7,  0  ),
-    new Beer( 'Porter',      7,  4,  9,  0  ),
-
-    new Beer( 'Stout',       5,  5,  8,  0  ),
-    new Beer( 'Stout',       7,  4,  10, 0  ),
-    new Beer( 'Stout',       12, 3,  9,  0  )
-  ]
+  Cellar.beers.push(new Beer(name, abv, hops, malt, sour));
 }
 
 export default Cellar;

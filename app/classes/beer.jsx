@@ -65,6 +65,19 @@ class Beer {
     ];
   }
 
+  /*
+   * Return the maginatude of the beer to keep beers similar in shape,
+   * but with different magnitudes from pairing.
+   *
+   * Returns
+   *  Integer
+   */
+
+  intensity() {
+    let sum = this._abv + this._hops + this._malt + this._sour;
+    return sum / 4;
+  }
+
 
 }
 

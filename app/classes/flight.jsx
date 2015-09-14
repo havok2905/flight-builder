@@ -46,6 +46,17 @@ class Flight {
   }
 
   /*
+   * Return how similar in intensity a beer is
+   *
+   * Returns
+   *  Integer
+   */
+
+  intensityDifference(a, b) {
+    return Math.abs(a.intensity() - b.intensity());
+  }
+
+  /*
    * Check if a beer has already been added to the flight
    *
    * Params
@@ -69,15 +80,16 @@ class Flight {
    */
 
   build() {
-    let bestMatch, bestMatchScore, currentMatchScore;
+    let bestMatch, bestMatchScore, currentMatchScore, intensityDiff;
 
     this._flightList.forEach((flightListItem) => {
       bestMatchScore = -1;
 
       this._beerList.forEach((beerListItem) => {
         currentMatchScore = this.similarityScore(flightListItem, beerListItem);
+        intensityDiff = this.intensityDifference(flightListItem, beerListItem);
 
-        if(this.beerNotInFlight(beerListItem) && currentMatchScore >= bestMatchScore) {
+        if(this.beerNotInFlight(beerListItem) && currentMatchScore >= bestMatchScore && intensityDiff < 3) {
           bestMatch = beerListItem;
           bestMatchScore = currentMatchScore;
         }

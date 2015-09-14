@@ -15,10 +15,10 @@ class FlightForm extends React.Component {
   }
 
   addBeer(e) {
-    let abv = this.state.beerABV,
-        hops = this.state.beerHops,
-        malt = this.state.beerMalt,
-        sour = this.state.beerSour;
+    let abv = parseInt(this.state.beerABV),
+        hops = parseInt(this.state.beerHops),
+        malt = parseInt(this.state.beerMalt),
+        sour = parseInt(this.state.beerSour);
 
     FlightProfile.beers.push(new Beer('flight beer', abv, hops, malt, sour));
     this.setBeers();
