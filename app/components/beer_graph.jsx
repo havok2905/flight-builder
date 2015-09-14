@@ -7,6 +7,10 @@ class BeerGraph extends React.Component {
     super(props);
   }
 
+  max() {
+    return 10;
+  }
+
   xScale() {
     return d3
              .scale
@@ -19,7 +23,7 @@ class BeerGraph extends React.Component {
     return d3
              .scale
              .linear()
-             .domain([0, max])
+             .domain([0, this.max()])
              .range([this.props.height, 0]);
   }
 
@@ -33,8 +37,7 @@ class BeerGraph extends React.Component {
   }
 
   path() {
-    let max = 10,
-        xScale = this.xScale(),
+    let xScale = this.xScale(),
         yScale = this.yScale();
 
     return d3
