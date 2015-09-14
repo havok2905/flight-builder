@@ -1,4 +1,5 @@
 import Beer from '../classes/beer';
+import Faker from 'faker';
 
 const NUM_BEERS = 50000;
 
@@ -31,7 +32,7 @@ let style, name, abv, hops, malt, sour;
 for(var x=0; x<NUM_BEERS; x++) {
   style = Cellar.getRandomStyle();
 
-  name = style.name + ' ' + x;
+  name = Faker.Name.findName() + ' Brewing ' + Faker.Company.companySuffix() + ', ' + style.name;
   abv  = Cellar.getRandom(style.abv[0], style.abv[1]);
   hops = Cellar.getRandom(style.hops[0], style.hops[1]);
   malt = Cellar.getRandom(style.malt[0], style.malt[1]);
