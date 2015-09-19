@@ -31,7 +31,7 @@ let style, name, abv, hops, malt, sour;
 for(var x=0; x<NUM_BEERS; x++) {
   style = Cellar.getRandomStyle();
 
-  name = Faker.Name.findName() + ' Brewing ' + Faker.Company.companySuffix() + ', ' + style.name;
+  name = Faker.name.findName() + ' Brewing ' + Faker.company.companySuffix() + ', ' + style.name;
   abv  = Cellar.getRandom(style.abv[0], style.abv[1]);
   hops = Cellar.getRandom(style.hops[0], style.hops[1]);
   malt = Cellar.getRandom(style.malt[0], style.malt[1]);

@@ -31,13 +31,17 @@ header {
 }
 
 .-column {
+  background-color: $white;
+  box-sizing: border-box;
   width: 46%;
   margin: 10px 2% 10px 2%;
   padding: 10px 1% 10px 1%;
-  box-sizing: border-box;
   min-height: 400px;
   float: left;
-  background-color: $white;
+
+  &.-full {
+    width: 96%
+  }
 }
 
 @media (max-width: 750px) {
